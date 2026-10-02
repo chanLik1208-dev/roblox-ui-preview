@@ -22,6 +22,22 @@ Roblox 原生 GUI 的一對工具：**`preview.py` 讓 agent 看得到，`sculpt
 
 ---
 
+## 當成 Claude Code skill 用
+
+`skills/roblox-gui/SKILL.md` 教 agent 走「看 → 改 → 再看」的流程。裝法：
+
+```bash
+git clone https://github.com/chanLik1208-dev/roblox-ui-preview.git
+pip install Pillow
+# 複製到個人 skill 目錄（Windows：%USERPROFILE%\.claude\skills\）
+cp -r roblox-ui-preview/skills/roblox-gui ~/.claude/skills/
+```
+
+再把 `SKILL.md` 裡的 `<repo>` 換成你 clone 的實際路徑。之後跟 Claude Code 說
+「改 Roblox UI」「UI 沒出現」之類的話就會自動觸發，也可以直接打 `/roblox-gui`。
+
+---
+
 ## 快速開始
 
 ```bash
@@ -315,6 +331,7 @@ ruip/
   compare.py        before/after 並排 PNG + 差異熱區
 test/run.py         60 條斷言（看）
 test/run_sculpt.py 113 條斷言（改）
+skills/roblox-gui/  Claude Code skill —— 教 agent 怎麼用上面兩支
 ```
 
 相依：只有 **Pillow**。圖片下載走標準庫 `urllib`；
